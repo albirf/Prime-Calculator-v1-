@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prime Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- Ambient background particles -->
+  <div class="bg-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <div class="wrapper">
+
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="logo">
+        <span class="logo-icon">⬡</span>
+        <h1>Prime <span>Calculator</span></h1>
+      </div>
+      <div class="header-controls">
+        <button id="historyToggle" class="icon-btn" title="History">
+          <svg viewBox="0 0 24 24">
+            <path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6a7 7 0 1 1 2.08 4.92L6.64 18.36A9 9 0 1 0 13 3z" />
+          </svg>
+        </button>
+        <button id="themeToggle" class="icon-btn theme-btn" title="Toggle Theme">
+          <svg class="sun-icon" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN LAYOUT -->
+    <main class="calc-layout">
+
+      <!-- HISTORY PANEL -->
+      <aside class="history-panel" id="historyPanel">
+        <div class="panel-header">
+          <span>History</span>
+          <button id="clearHistory" class="clear-hist-btn">Clear</button>
+        </div>
+        <ul id="historyList" class="history-list">
+          <li class="empty-hist">No calculations yet</li>
+        </ul>
+      </aside>
+
+      <!-- CALCULATOR CARD -->
+      <div class="calc-card">
+
+        <!-- DISPLAY -->
+        <div class="display">
+          <div class="display-inner">
+            <div id="expression" class="expression"></div>
+            <div id="result" class="result">0</div>
+          </div>
+          <div class="display-actions">
+            <button id="copyBtn" class="copy-btn" title="Copy result">
+              <svg viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" />
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+              </svg>
+              <span id="copyLabel">Copy</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- SCIENTIFIC PANEL -->
+        <div class="sci-strip">
+          <button class="sci-btn" data-action="sin">sin</button>
+          <button class="sci-btn" data-action="cos">cos</button>
+          <button class="sci-btn" data-action="tan">tan</button>
+          <button class="sci-btn" data-action="sqrt">√</button>
+          <button class="sci-btn" data-action="square">x²</button>
+          <button class="sci-btn" data-action="log">log</button>
+          <button class="sci-btn" data-action="pi">π</button>
+        </div>
+
+        <!-- MAIN BUTTONS -->
+        <div class="btn-grid">
+          <button class="calc-btn fn-btn" data-action="clear">AC</button>
+          <button class="calc-btn fn-btn" data-action="del">DEL</button>
+          <button class="calc-btn op-btn" data-action="%">%</button>
+          <button class="calc-btn op-btn op-primary" data-action="÷">÷</button>
+
+          <button class="calc-btn num-btn" data-action="7">7</button>
+          <button class="calc-btn num-btn" data-action="8">8</button>
+          <button class="calc-btn num-btn" data-action="9">9</button>
+          <button class="calc-btn op-btn op-primary" data-action="×">×</button>
+
+          <button class="calc-btn num-btn" data-action="4">4</button>
+          <button class="calc-btn num-btn" data-action="5">5</button>
+          <button class="calc-btn num-btn" data-action="6">6</button>
+          <button class="calc-btn op-btn op-primary" data-action="-">−</button>
+
+          <button class="calc-btn num-btn" data-action="1">1</button>
+          <button class="calc-btn num-btn" data-action="2">2</button>
+          <button class="calc-btn num-btn" data-action="3">3</button>
+          <button class="calc-btn op-btn op-primary" data-action="+">+</button>
+
+          <button class="calc-btn num-btn span-2" data-action="0">0</button>
+          <button class="calc-btn num-btn" data-action=".">.</button>
+          <button class="calc-btn eq-btn" data-action="=">=</button>
+        </div>
+
+      </div><!-- /calc-card -->
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <span>MΛDΣ⚡with <span class="heart">♥</span> by <strong>PʀɪmeWeʙ Studɪo</strong></span><br>
+      <span> DΣV<span class="heart">♥</span> by <strong>ALʙɪ ʀ F⚡</strong>
+    </footer>
+
+  </div><!-- /wrapper -->
+
+  <script src="script.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
